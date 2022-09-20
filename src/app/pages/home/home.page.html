@@ -1,0 +1,25 @@
+<ion-header translucent="true">
+  <!-- HEADER -->
+  <ion-toolbar>
+    <ion-title color="warning">Accueil</ion-title>
+    <ion-button
+      *ngIf="promptEvent"
+      (click)="onInstall()"
+      expand="block"
+      fill="clear"
+      shape="round"
+      slot="start"
+    >
+      Click me
+    </ion-button>
+    <!-- BUTTON MENU -->
+    <ion-buttons slot="end">
+      <ion-menu-button (click)="toggleMenu()"> </ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- CONTENT -->
+<ion-content>
+  <div><strong>Le contenu de la page</strong></div>
+</ion-content>

@@ -1,0 +1,49 @@
+<!-- MENU TWO -->
+<ion-menu
+  contentId="main-content"
+  menuId="menu-second"
+  side="end"
+  type="overlay"
+>
+  <ion-header>
+    <ion-toolbar color="secondary">
+      <ion-title>Start Menu TWO</ion-title>
+      <ion-icon
+        name="close-circle-outline"
+        class="ion-margin"
+        slot="end"
+        size="large"
+        (click)="onDimiss()"
+      ></ion-icon>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="12" >
+          <ion-button   expand="block" (click)="navigate('home')" color="success">
+            <ion-icon slot="start" name="home-outline"></ion-icon> HOME
+          </ion-button></ion-col
+        >
+        <ion-col size="12" >
+          <ion-button  expand="full" (click)="navigate('courses')">
+            <ion-icon slot="start" name="construct-outline"></ion-icon> COURSES
+          </ion-button></ion-col
+        >
+      </ion-row>
+    </ion-grid>
+
+    <ion-toolbar>
+      <ion-title id="title" color="success">ANDROID menu</ion-title>
+      <ion-buttons slot="end">
+        <ion-button color="success" (click)="openMenu($event)">
+          <ion-icon
+            slot="icon-only"
+            ios="ellipsis-horizontal"
+            md="ellipsis-horizontal"
+          ></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-content>
+</ion-menu>
