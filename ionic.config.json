@@ -1,0 +1,7 @@
+{
+  "name": "TP_diginamic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
