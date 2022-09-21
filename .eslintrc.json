@@ -16,6 +16,7 @@
       "rules": {
         "quotes": "off",
         "no-underscore-dangle": ["off"],
+        "@typescript-eslint/naming-convention":["off"],
         "@angular-eslint/component-class-suffix":["off"],
         "@angular-eslint/component-selector": [
           "error",

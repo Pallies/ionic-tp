@@ -1,0 +1,11 @@
+<ion-item-sliding>
+  <!-- CONTENT -->
+  <ng-content select=".content"></ng-content>
+  <!-- OPTION -->
+  <ion-item-options side="start" class="option option-start">
+    <ng-content select=".btn-start"> </ng-content>
+  </ion-item-options>
+  <ion-item-options side="end" class="option option-end">
+    <ng-content select=".btn-end"> </ng-content>
+  </ion-item-options>
+</ion-item-sliding>

@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- BACK ROUTER -->
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>liste-cours</ion-title>
+    <!-- MENU -->
+    <ion-buttons slot="end">
+      <ion-menu-button> </ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-group>
+    <ion-item id="exemple">
+      <ion-label>
+        <h2>Nom du cours</h2>
+        <p>Nbre d'élèves</p>
+      </ion-label>
+      <ion-badge slot="end" class="ion-margin" color="warning"
+        >Exemple</ion-badge
+      >
+      <ion-label slot="end" class="ion-padding">Professeur </ion-label>
+    </ion-item>
+  </ion-item-group>
+  <ng-container *ngFor="let item of (stockage.list | async);let i=index">
+    <ion-list>
+      <app-item-sliding>
+        <app-item-cours class="content" [cours]="item"></app-item-cours>
+        <ion-button
+          class="btn-start"
+          color="warning"
+          class="btn-start"
+          (click)="onUpdate(i)"
+        >
+          <ion-icon name="pencil-outline" slot="start"></ion-icon>
+          Modifier
+        </ion-button>
+        <ion-button
+          class="btn-end"
+          color="danger"
+          class="btn-end"
+          (click)="onRemove(i)"
+        >
+          <ion-icon name="trash-outline" slot="start"></ion-icon>
+          Supprimer
+        </ion-button>
+      </app-item-sliding>
+    </ion-list>
+  </ng-container>
+</ion-content>

@@ -1,0 +1,18 @@
+#title {
+  color: black;
+}
+.text-deco{
+
+  font-size:smaller;
+  font-style: italic;
+  &#subtitle{
+    color:gray;
+  }
+  &.form-error{
+    text-align: center;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+
+}

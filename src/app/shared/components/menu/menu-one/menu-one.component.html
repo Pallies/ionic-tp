@@ -7,7 +7,7 @@
 >
   <ion-header>
     <ion-toolbar color="primary">
-      <ion-title>Start Menu ONE</ion-title>
+      <ion-title>Menu </ion-title>
       <ion-icon
         name="close-circle-outline"
         class="ion-margin"
@@ -26,8 +26,14 @@
           </ion-button>
         </ion-col>
         <ion-col size="12">
-          <ion-button expand="full" (click)="navigate('courses')">
-            <ion-icon slot="start" name="construct-outline"></ion-icon> COURSES
+          <ion-button expand="full" (click)="navigate('saisie-cours')">
+            <ion-icon slot="start" name="pencil-outline"></ion-icon> Créer
+          </ion-button>
+          <ion-button expand="full" (click)="navigate('rechercher-cours')">
+            <ion-icon slot="start" name="search-outline"></ion-icon> Rechercher
+          </ion-button>
+          <ion-button expand="full" (click)="navigate('liste-cours')">
+            <ion-icon slot="start" name="list-outline"></ion-icon> Liste
           </ion-button>
         </ion-col>
       </ion-row>

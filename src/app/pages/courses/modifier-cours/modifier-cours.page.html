@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>modifier-cours</ion-title>
+    <!-- BACK ROUTER -->
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding" >
+  <ion-card color="warning" class="ion-margin-top">
+    <ion-card-header>
+      <ion-card-title>Nouveau Cours</ion-card-title>
+      <ion-card-subtitle id="subtitle" class="text-deco">
+        <ion-text color="danger">*</ion-text>
+        remplir le formulaire
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="form" (ngSubmit)="onUpdated()">
+
+        <!-- NOM COURS -->
+        <ion-item>
+          <ion-label position="floating" color="dark">
+            Nom du Cours
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input
+            [formControlName]="COURS.NOM"
+            required
+            type="text"
+          ></ion-input>
+        </ion-item>
+        <!-- NB ETUDIANT -->
+        <ion-item>
+          <ion-label position="floating" color="dark">
+            Nombre de participants
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input
+            [formControlName]="COURS.NOMBRE"
+            required
+            type="number"
+            placeholder="nb Etudiants"
+          >
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" color="dark">
+            Nom du Professeur
+            <ion-text color="danger">*</ion-text>
+          </ion-label>
+          <ion-input [formControlName]="COURS.PROF" required type="text">
+          </ion-input>
+        </ion-item>
+        <!-- BUTTONS -->
+<ion-grid fixed class="ion-margin-top">
+  <ion-row>
+    <ion-col size="6">
+      <ion-button  color="ligth" expand="block" flill="outline" href="home">
+        <ion-icon name="arrow-undo-outline" slot="start"></ion-icon>
+        Annuler
+      </ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button
+      color="success"
+      expand="block"
+      type="submit"
+      fill="solid"
+      [disabled]="!form.valid"
+    >
+      Validez
+      <ion-icon name="chevron-forward-circle-outline" slot="end">
+      </ion-icon>
+    </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+

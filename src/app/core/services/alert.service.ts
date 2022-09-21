@@ -12,7 +12,7 @@ export class AlertService {
 
     const alertElement = await this.alert.create({
       ...alertOption,
-     translucent:true
+     translucent:false
     });
     alertElement.present();
     // alertElement.onDidDismiss().then(); action à la fermeture !?
