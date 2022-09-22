@@ -7,35 +7,39 @@
   </ion-toolbar>
 </ion-header>
 <ion-searchbar
+  #input
   [debounce]="100"
   (ionChange)="handleChange($event)"
 ></ion-searchbar>
 <ion-list>
-
   <ion-grid fixed>
-<ion-row class="ion-justify-content-center">
-    <ion-item >
-      <ion-select
-        interface="popover"
-        placeholder="Selectionner le filtre de la recherche"
-        (ionChange)="handleChangePopover($event)"
-      >
-        <ion-select-option [value]="[COURS.NOM]" selected
-          >Nom du Cours</ion-select-option
+    <ion-row class="ion-justify-content-center">
+      <ion-item>
+        <ion-select
+          interface="popover"
+          placeholder="Selectionner le filtre de la recherche"
+          (ionChange)="handleChangePopover($event)"
+    
         >
-        <ion-select-option [value]="[COURS.PROF]"
-          >Nom du professeur</ion-select-option
-        >
-      </ion-select>
-    </ion-item>
-</ion-row>
+          <ion-select-option [value]="[COURS.NOM]" selected
+            >Nom du Cours</ion-select-option
+          >
+          <ion-select-option [value]="[COURS.PROF]"
+            >Nom du professeur</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+    </ion-row>
     <ion-row>
-
       <ion-col size="6">
-        <ion-text [(selector)]="selected" [value]="COURS.NOM"color="medium">Matière</ion-text>
+        <ion-text [selector]="selected" [value]="COURS.NOM" color="medium"
+          >Matière</ion-text
+        >
       </ion-col>
       <ion-col size="3" offset="3">
-        <ion-text [(selector)]="selected" [value]="COURS.PROF" color="medium">Professeur</ion-text>
+        <ion-text [selector]="selected" [value]="COURS.PROF" color="medium"
+          >Professeur</ion-text
+        >
       </ion-col>
     </ion-row>
   </ion-grid>
