@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Cours } from 'src/app/core/models/cours';
+import { Preferences } from '@capacitor/preferences';
+
+import * as coursData from './mock-cours.json';
 
 @Injectable({
   providedIn: 'root',
@@ -9,22 +13,21 @@ export class ListService {
   list: BehaviorSubject<Cours[]> = new BehaviorSubject([]);
 
   constructor() {
-    this.add(new Cours({ nom: 'Angular', nbEtudiant: 25, nomProf:'Romain'} as Cours));
-    this.add(new Cours({ nom: 'Bootstrap', nbEtudiant: 25 , nomProf:'Clara'} as Cours));
-    this.add(new Cours({ nom: 'Spring Boot', nbEtudiant: 15 , nomProf:'Séga'} as Cours));
-    this.add(new Cours({ nom: 'Docker', nbEtudiant: 5 , nomProf:'Jonathan'} as Cours));
-    this.add(new Cours({ nom: 'Material', nbEtudiant: 15 , nomProf:'Théo'} as Cours));
-    this.add(new Cours({ nom: 'Hybernate', nbEtudiant: 25 , nomProf:'Rossi'} as Cours));
-    this.add(new Cours({ nom: 'ionic', nbEtudiant: 25, nomProf:'Christophe' } as Cours));
-    this.add(new Cours({ nom: 'Capacitor', nbEtudiant: 10 , nomProf:'Noé'} as Cours));
-    this.add(new Cours({ nom: 'Java', nbEtudiant: 25 , nomProf:'Richard'} as Cours));
-    this.add(new Cours({ nom: 'React', nbEtudiant: 10, nomProf:'Benjamin' } as Cours));
+    // chargement des données JSON ou storage
+    this.loadStorageasync().then((data) => {
+      if (data !== null) {
+        this.list.next(data);
+      } else {
+        this.list.next(coursData?.cours as Cours[]);
+        this.saveStorageasync(this.list.getValue());
+      }
+    });
   }
   add(cours: Cours) {
     const list = this.list.getValue();
     list.unshift(new Cours(cours));
-    // list.unshift(cours);
     this.list.next(list);
+    this.saveStorageasync();
   }
   update(cours: Cours, index) {
     const list = this.list.getValue();
@@ -33,17 +36,31 @@ export class ListService {
     const endList = list.slice(index);
     startList.push(new Cours(cours));
     this.list.next(startList.concat(endList));
-    console.log(this.list.getValue());
+    this.saveStorageasync();
   }
-  sort(nameProp: string){
-   const list = this.list.getValue().sort((a,b)=>a[nameProp]-b[nameProp]);
-    this.list.next(list);
+  sort(nameProp: string) {
+    this.list
+      .getValue()
+      .sort((a: Cours, b: Cours) => b[nameProp].localeCompare(a[nameProp]))
+      .reverse();
   }
-  reverse(){
-    this.list.next(this.list.getValue().reverse());
+  reverse() {
+    this.list.getValue().reverse();
   }
 
   remove(index: number) {
     this.list.getValue().splice(index, 1);
+    this.saveStorageasync();
+  }
+  // gestion du stockage
+  async saveStorageasync(data: Cours[]=this.list.getValue()) {
+    await Preferences.set({
+      key: 'cours',
+      value: JSON.stringify(data),
+    });
+  }
+  async loadStorageasync(): Promise<Cours[]> {
+    const { value } = await Preferences.get({ key: 'cours' });
+    return JSON.parse(value);
   }
 }

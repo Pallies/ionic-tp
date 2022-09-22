@@ -1,0 +1,14 @@
+{
+  "cours": [
+    { "nom": "Angular", "nbEtudiant": 25, "nomProf": "Romain" },
+    { "nom": "Bootstrap", "nbEtudiant": 25, "nomProf": "Clara" },
+    { "nom": "Spring Boot", "nbEtudiant": 15, "nomProf": "Séga" },
+    { "nom": "Docker", "nbEtudiant": 5, "nomProf": "Jonathan" },
+    { "nom": "Material", "nbEtudiant": 15, "nomProf": "Théo" },
+    { "nom": "Hybernate", "nbEtudiant": 25, "nomProf": "Rossi" },
+    { "nom": "ionic", "nbEtudiant": 25, "nomProf": "Christophe" },
+    { "nom": "Capacitor", "nbEtudiant": 10, "nomProf": "Noé" },
+    { "nom": "Java", "nbEtudiant": 25, "nomProf": "Richard" },
+    { "nom": "React", "nbEtudiant": 10, "nomProf": "Benjamin" }
+  ]
+}

@@ -1,3 +1,4 @@
+import { DirectiveModule } from 'src/app/shared/directives/directive.module';
 import { ItemsModule } from './../../../shared/components/items/items.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -15,6 +16,7 @@ import { RechercherCoursPage } from './rechercher-cours.page';
     FormsModule,
     IonicModule,
     ItemsModule,
+    DirectiveModule,
     RechercherCoursPageRoutingModule
   ],
   declarations: [RechercherCoursPage]

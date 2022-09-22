@@ -1,10 +1,10 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar >
     <!-- BACK ROUTER -->
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>liste-cours</ion-title>
+    <ion-title>Liste des cours</ion-title>
     <!-- MENU -->
     <ion-buttons slot="end">
       <ion-menu-button> </ion-menu-button>
@@ -16,21 +16,43 @@
   <ion-item-group>
     <ion-item id="exemple">
       <ion-label>
-        <h2>Nom du cours</h2>
-        <p>Nbre d'élèves</p>
-      </ion-label>
-      <ion-badge slot="end" class="ion-margin" color="warning"
-        >Exemple</ion-badge
+          <a
+            class="slr slr-start"
+            selector
+            [value]="COURS.NOM"
+            [(selector)]="selectedValue"
+            (selectorChange)="handleSort($event)"
+            type="button"
+            >Nom du cours</a
+          >
+          <p>Nbre d'élèves</p>
+        </ion-label>
+        <ion-badge class="badge" color="warning"
+        >
+        <ion-icon  class="badge-icon" size="small"  name="arrow-back-circle-outline"></ion-icon>
+          <p class="badge-text">Ordonnancer</p>
+         <ion-icon  class="badge-icon" size="small"name="arrow-forward-circle-outline"></ion-icon>
+        </ion-badge
       >
-      <ion-label slot="end" class="ion-padding">Professeur </ion-label>
+      <ion-label
+        slot="end"
+        ><a
+          class="slr slr-end"
+          [value]="COURS.PROF"
+          [(selector)]="selectedValue"
+          (selectorChange)="handleSort($event)"
+          type="button"
+          >Professeur</a
+        >
+      </ion-label>
     </ion-item>
   </ion-item-group>
   <ng-container *ngFor="let item of (stockage.list | async);let i=index">
     <ion-list>
-      <app-item-sliding>
+      <app-item-sliding >
         <app-item-cours class="content" [cours]="item"></app-item-cours>
         <ion-button
-          class="btn-start"
+          class="btn btn-start"
           color="warning"
           class="btn-start"
           (click)="onUpdate(i)"
@@ -39,7 +61,7 @@
           Modifier
         </ion-button>
         <ion-button
-          class="btn-end"
+          class="btn btn-end"
           color="danger"
           class="btn-end"
           (click)="onRemove(i)"

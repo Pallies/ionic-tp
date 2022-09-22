@@ -1,8 +1,32 @@
 #exemple,
-#exemple >ion-label > p,
-#exemple > ion-label >h2,
+#exemple > ion-label > p,
 #date {
   font-style: italic;
   color: rgb(127, 127, 127);
   font-size: x-small;
+}
+.slr {
+  font-size: small;
+  &-start {
+  }
+  &-end {
+    padding-right: 1rem;
+  }
+}
+.btn{
+  &-start,&-end{
+    height: 100%;
+    align-self: stretch;
+  }
+}
+.badge{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min-content;
+  display: flex;
+  &-icon{
+    padding: 0 5px;
+    align-self: center;
+  }
 }

@@ -15,7 +15,6 @@ export class PopoverService {
   ) {}
 
   create(event: MouseEvent, name: string) {
-    console.log(event);
     this.popover
       .create({
         component: MenuActionComponent,

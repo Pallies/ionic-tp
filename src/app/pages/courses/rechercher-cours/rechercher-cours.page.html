@@ -1,6 +1,6 @@
 <ion-header color="info">
   <ion-toolbar>
-    <ion-title>rechercher-cours</ion-title>
+    <ion-title>Rechercher un cours</ion-title>
     <ion-buttons slot="end">
       <ion-menu-button> </ion-menu-button>
     </ion-buttons>
@@ -32,10 +32,10 @@
     <ion-row>
 
       <ion-col size="6">
-        <ion-text color="medium">Matière</ion-text>
+        <ion-text [(selector)]="selected" [value]="COURS.NOM"color="medium">Matière</ion-text>
       </ion-col>
       <ion-col size="3" offset="3">
-        <ion-text color="medium">Professeur</ion-text>
+        <ion-text [(selector)]="selected" [value]="COURS.PROF" color="medium">Professeur</ion-text>
       </ion-col>
     </ion-row>
   </ion-grid>

@@ -11,7 +11,8 @@ export class RechercherCoursPage implements OnInit {
   list: Cours[];
   data: Cours[];
   COURS: typeof COURS = COURS;
-  selected = [COURS.NOM];
+  selected: string;
+  select: string;
   constructor(public stockage: ListService) {}
 
   ngOnInit() {
@@ -20,9 +21,10 @@ export class RechercherCoursPage implements OnInit {
     });
   }
   handleChange(event) {
+    this.selected = COURS.NOM.toString();
     const query = event.target.value.toLowerCase();
     this.list = this.data.filter(
-      (d) => d[`${this.selected}`].toLowerCase().indexOf(query) > -1
+      (d) => d[this.selected].toString().toLowerCase().indexOf(query) > -1
     );
   }
   handleChangePopover(value: any) {

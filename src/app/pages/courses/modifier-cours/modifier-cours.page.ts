@@ -26,7 +26,7 @@ export class ModifierCoursPage implements OnInit {
     this.routeActived.paramMap.subscribe((params) => {
       this.index = +params.get('id');
       const list = this.stockage.list.getValue();
-      this.form.setValue(list[this.index]);
+      this.form.patchValue(list[this.index]);
     });
   }
   onUpdated() {

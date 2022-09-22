@@ -16,8 +16,9 @@
       "rules": {
         "quotes": "off",
         "no-underscore-dangle": ["off"],
-        "@typescript-eslint/naming-convention":["off"],
-        "@angular-eslint/component-class-suffix":["off"],
+        "@typescript-eslint/naming-convention": ["off"],
+        "@angular-eslint/component-class-suffix": ["off"],
+        "@typescript-eslint/member-ordering": ["off"],
         "@angular-eslint/component-selector": [
           "error",
           {
@@ -26,14 +27,7 @@
             "style": "kebab-case"
           }
         ],
-        "@angular-eslint/directive-selector": [
-          "error",
-          {
-            "type": "attribute",
-            "prefix": "app",
-            "style": "camelCase"
-          }
-        ]
+        "@angular-eslint/directive-selector": ["off"]
       }
     },
     {
