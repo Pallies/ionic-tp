@@ -19,9 +19,9 @@ export class RechercherCoursPage implements OnInit {
     this.stockage.list.subscribe((data) => {
       this.data = data;
     });
+    this.selected = COURS.NOM.toString();
   }
   handleChange(event) {
-    this.selected = COURS.NOM.toString();
     const query = event.target.value.toLowerCase();
     this.list = this.data.filter(
       (d) => d[this.selected].toString().toLowerCase().indexOf(query) > -1
